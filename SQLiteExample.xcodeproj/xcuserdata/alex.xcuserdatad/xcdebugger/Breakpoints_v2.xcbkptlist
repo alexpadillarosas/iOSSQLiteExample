@@ -14,8 +14,8 @@
             filePath = "SQLiteExample/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-find:"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "SQLiteExample/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-remove:"
             landmarkType = "7">
          </BreakpointContent>

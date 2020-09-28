@@ -21,6 +21,7 @@
 - (IBAction)save:(id)sender;
 - (IBAction)find:(id)sender;
 - (IBAction)remove:(id)sender;
+- (IBAction)viewAll:(id)sender;
 
 
 @end

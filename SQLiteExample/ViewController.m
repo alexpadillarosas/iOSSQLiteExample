@@ -59,6 +59,44 @@
 
 
 
+- (IBAction)viewAll:(id)sender {
+    const char* dbPath = [_databasePath UTF8String];
+
+    sqlite3_stmt *stmt = NULL;
+    int err = 0;
+    
+    if(sqlite3_open(dbPath, &_db) == SQLITE_OK){
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT ID, Name FROM users"];
+        const char* queryStatement = [querySQL UTF8String];
+        
+        if(sqlite3_prepare_v2(_db, queryStatement, -1, &stmt, NULL) == SQLITE_OK ){
+            
+            if (err != SQLITE_OK) {
+                NSLog(@"prepare failed: %s", sqlite3_errmsg(_db));
+            }else{
+
+                for (;;) {
+                    err = sqlite3_step(stmt);
+                    if (err != SQLITE_ROW)
+                        break;
+
+                    int id = sqlite3_column_int (stmt, 0);
+                    const unsigned char* name = sqlite3_column_text(stmt, 1);
+
+                    NSLog(@"ID: %d, Name: %s\n", id, name);
+                }
+
+                if (err != SQLITE_DONE) {
+                    NSLog(@"execution failed: %s", sqlite3_errmsg(_db));
+                }
+            }
+        }
+        sqlite3_finalize(stmt);
+        sqlite3_close(_db);
+
+    }
+}
+
 - (IBAction)remove:(id)sender {
     const char* dbPath = [_databasePath UTF8String];
     char* errorMessage;
